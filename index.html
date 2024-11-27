@@ -8,6 +8,7 @@
     <title>Spiritually</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -16,10 +17,50 @@
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NS9ZX3Q6');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-NS9ZX3Q6');
+    </script>
     <!-- End Google Tag Manager -->
 
-    <script type="text/javascript" src="//cdn.evgnet.com/beacon/partnerhorizontalus/rushipatel/scripts/evergage.min.js"></script>
+    <script>
+        // window.dataLayer = window.dataLayer || [];
+        // window.dataLayer.push({
+        //     'gaId': 'G-XXXXXXXXXX',
+        // });
+
+        // Get GA4 Client ID
+
+        gtag('get', 'G-GGF6S8VG9D', 'client_id', (clientId) => {
+            console.log('GA4 Client ID:', clientId);
+        });
+
+
+    </script>
+
+
+    <!-- <script>
+        (function () {
+            var gaId = window.dataLayer.find(item => item.gaId)?.gaId;
+            if (gaId) {
+                // Load GA4 script dynamically
+                var gtagScript = document.createElement('script');
+                gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+                gtagScript.async = true;
+                document.head.appendChild(gtagScript);
+
+                // Configure GA4
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ 'event': 'js' });
+                window.dataLayer.push({ 'config': gaId });
+            } else {
+                console.error('GA ID not found in the data layer.');
+            }
+        })();
+    </script> -->
+
+
+
+    <script type="text/javascript"
+        src="//cdn.evgnet.com/beacon/partnerhorizontalus/rushipatel/scripts/evergage.min.js"></script>
 
 </head>
 
@@ -143,7 +184,7 @@
     <section id="banner" class="section-m1">
         <h4>Online Yoga Classes</h4>
         <h2>Up to <span>60% Off</span> - Selected Yoga Sessions</h2>
-        <button class="normal">Explore More</button>
+        <button class="normal" onclick="handleSendGoogleAnalyticsId()">Explore More</button>
     </section>
 
     <h2 style="
