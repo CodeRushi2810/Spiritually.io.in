@@ -38,24 +38,16 @@
         // Initialize Google Analytics with the Measurement ID
         gtag('config', 'G-GGF6S8VG9D');
 
-        function getGAID() {
-            var gaCookie = document.cookie.split('; ').find(row => row.startsWith('_ga='));
-            return gaCookie ? gaCookie.split('=')[1] : null;
-        }
+        gtag('get', 'G-GGF6S8VG9D', 'client_id', function(clientId) {
+        // Push the retrieved GAID to the dataLayer
+        window.dataLayer.push({
+            event: 'gaidRetrieved',
+            gaid: clientId
+        });
 
-        // Retrieve the GAID
-        var gaid = getGAID();
-
-        // If GAID exists, push it to the dataLayer
-        if (gaid) {
-            window.dataLayer.push({
-                event: 'gaidRetrieved',
-                gaid: gaid
-            });
-            console.log('GAID pushed to dataLayer:', gaid);
-        } else {
-            console.warn('GAID not found.');
-        }
+        // Log GAID for debugging purposes
+        console.log('GAID retrieved and pushed to dataLayer:', clientId);
+        });
     </script>
 
     <script type="text/javascript"
