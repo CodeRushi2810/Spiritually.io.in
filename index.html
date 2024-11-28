@@ -9,6 +9,55 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="style.css">
 
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NS9ZX3Q6');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGF6S8VG9D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        // Initialize Google Analytics with the Measurement ID
+        gtag('config', 'G-GGF6S8VG9D');
+
+        function getGAID() {
+            var gaCookie = document.cookie.split('; ').find(row => row.startsWith('_ga='));
+            return gaCookie ? gaCookie.split('=')[1] : null;
+        }
+
+        // Retrieve the GAID
+        var gaid = getGAID();
+
+        // If GAID exists, push it to the dataLayer
+        if (gaid) {
+            window.dataLayer.push({
+                event: 'gaidRetrieved',
+                gaid: gaid
+            });
+            console.log('GAID pushed to dataLayer:', gaid);
+        } else {
+            console.warn('GAID not found.');
+        }
+    </script>
+
     <script type="text/javascript"
         src="//cdn.evgnet.com/beacon/partnerhorizontalus/rushipatel/scripts/evergage.min.js"></script>
 
